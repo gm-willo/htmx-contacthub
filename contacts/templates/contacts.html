@@ -4,7 +4,7 @@
 
 <div>
     <h1 class="text-4xl text-success mb-4">Contact Manager</h1>
-    
+
     <button class="btn btn-primary mb-4" onclick="contact_modal.showModal()">
         Add New Contact
     </button>
@@ -17,8 +17,7 @@
                 stroke-linecap="round"
                 stroke-width="2.5"
                 fill="none"
-                stroke="currentColor"
-            >
+                stroke="currentColor">
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.3-4.3"></path>
             </g>
@@ -33,9 +32,7 @@
             hx-target="#contact-list"
             hx-indicator="#spinner"
             hx-on::before-request="document.getElementById('contact-list').style.opacity=0.4;"
-            hx-on::after-request="document.getElementById('contact-list').style.opacity=1.0;"
-
-        />
+            hx-on::after-request="document.getElementById('contact-list').style.opacity=1.0;"/>
         
         {% include "partials/spinner.html" %}
     </label>
@@ -43,4 +40,11 @@
     {% include "partials/contact-list.html" %} 
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.body.addEventListener("fail", () => {
+            document.getElementById("contact_modal").showModal();
+        });
+    });
+</script>
 {% endblock %}
