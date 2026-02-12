@@ -10,7 +10,11 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody id="contact-table-body">
+                <tbody
+                    hx-confirm="Are you sure to delete this contact?"
+                    hx-target="closest tr"
+                    hx-swap="outerHTML swap:1s"
+                    id="contact-table-body">
                     {% for contact in contacts %}
                         {% include "partials/contact-row.html" %}
                     {% endfor %}
